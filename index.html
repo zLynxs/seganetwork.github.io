@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SEGA Network</title>
+<style>
+  :root{
+    --dark-bg: #0b0b0b;
+    --dark-panel: #111111;
+    --dark-text: #eaeaea;
+    --accent-dark: #00ffff;
+    --accent-link-dark: #00ccff;
+
+    --light-bg: #ffffff;
+    --light-panel: #ffffff;
+    --light-text: #222222;
+    --accent-light: #0066cc;
+    --accent-link-light: #0066cc;
+  }
+
+  html,body{height:100%;margin:0;padding:0;font-family:Arial, sans-serif;}
+  body{
+    background-color: var(--dark-bg);     /* SIN IMAGEN: fondo oscuro sólido */
+    color: var(--dark-text);
+    text-align:center;
+    transition: background-color .25s ease, color .25s ease;
+  }
+
+  header, footer, section{
+    transition: background-color .25s ease, color .25s ease;
+    margin:0 auto;
+    width:90%;
+    max-width:800px;
+    border-radius:12px;
+  }
+
+  header{
+    background-color: var(--dark-panel);
+    padding:20px;
+    margin-top:20px;
+  }
+  h1{ color: var(--accent-dark); margin:0; font-size:2em;}
+  nav{margin:12px 0;}
+  nav a{ text-decoration:none; color:#ffcc00; margin:0 10px; font-weight:bold; font-size:1.05em;}
+  section{
+    background-color: var(--dark-panel);
+    padding:15px;
+    margin-top:18px;
+  }
+  section h2{ color:#00ff99; }
+  footer{
+    background-color: var(--dark-panel);
+    padding:10px;
+    margin:24px auto;
+    font-size:0.9em;
+  }
+  a{ color: var(--accent-link-dark); }
+
+  /* Tema claro: fondo 100% blanco y colores legibles */
+  body.light{
+    background-color: var(--light-bg);   /* FONDO BLANCO TOTAL */
+    color: var(--light-text);
+  }
+  body.light header{ background-color: var(--light-panel); }
+  body.light h1{ color: var(--accent-light); }
+  body.light nav a{ color: var(--accent-light); }
+  body.light section{ background-color: #ffffff; color: var(--light-text); }
+  body.light section h2{ color: #008800; }
+  body.light footer{ background-color: #f0f0f0; color: var(--light-text); }
+  body.light a{ color: var(--accent-link-light); }
+
+  /* Botón para cambiar tema */
+  #theme-toggle{
+    margin-top:10px;
+    padding:8px 14px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#ffcc00;
+    color:#000;
+    font-weight:bold;
+  }
+
+  @media (max-width:480px){
+    h1{ font-size:1.5em; }
+    nav a{ display:inline-block; margin:6px 8px; font-size:1em; }
+    header, section, footer{ width:95%; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>🌌 SEGA Network 🌌</h1>
+    <p>El mejor servidor 0.14x - 0.15x</p>
+    <nav>
+      <a href="#info">Información</a>
+      <a href="#ip">IP del Servidor</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button id="theme-toggle">🌞 Cambiar Tema</button>
+  </header>
+
+  <section id="info">
+    <h2>📌 Información del Servidor</h2>
+    <p>SEGA Network es un servidor de Minecraft Pocket Edition con modos PvP, UHC, Minijuegos y mucho más.</p>
+  </section>
+
+  <section id="ip">
+    <h2>🌐 Conéctate</h2>
+    <p><strong>IP:</strong> segamcpe.xyz</p>
+    <p><strong>Puerto:</strong> 19132</p>
+  </section>
+
+  <section id="contacto">
+    <h2>📧 Contacto</h2>
+    <p>Únete a nuestra comunidad en Discord:</p>
+    <p><a href="https://dsc.gg/segamcpe" target="_blank">Discord Oficial</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 SEGA Network - Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('theme-toggle');
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') {
+      document.body.classList.add('light');
+      btn.textContent = '🌙 Cambiar a Tema Oscuro';
+    } else {
+      btn.textContent = '🌞 Cambiar a Tema Claro';
+    }
+
+    btn.addEventListener('click', () => {
+      const isLight = document.body.classList.toggle('light');
+      btn.textContent = isLight ? '🌙 Cambiar a Tema Oscuro' : '🌞 Cambiar a Tema Claro';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>
